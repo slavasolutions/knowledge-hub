@@ -1,0 +1,41 @@
+---
+interface Props {
+  year: string;
+  title: string;
+  description: string;
+  href?: string;
+  linkText?: string;
+}
+
+const { year, title, description, href, linkText = 'Learn more →' } = Astro.props;
+---
+
+<div class="card session-card">
+  <span class="eyebrow">{year}</span>
+  <h4>{title}</h4>
+  <p>{description}</p>
+  {href && <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener' : undefined}>{linkText}</a>}
+</div>
+
+<style>
+  .session-card h4 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--navy);
+    margin: var(--sp-2) 0;
+  }
+  .session-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--sp-3);
+  }
+  .session-card a {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .session-card a:hover { text-decoration: underline; }
+</style>

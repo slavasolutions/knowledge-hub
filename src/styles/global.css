@@ -1,0 +1,174 @@
+:root {
+  /* ── COLOR TOKENS ─────────────────── */
+  --navy:          #1B2A4A;
+  --navy-light:    #2A3D63;
+  --gold:          #B8953E;
+  --gold-muted:    #C4A555;
+  --gold-pale:     #EDE5D0;
+
+  --bg:            #F7F6F3;
+  --surface:       #FFFFFF;
+  --surface-raised:#FAFAF8;
+
+  --text:          #2C2C2C;
+  --text-secondary:#6B6B6B;
+  --text-tertiary: #9B9B9B;
+
+  --border:        #E0DFDC;
+  --border-light:  #EDECE9;
+
+  /* ── TYPOGRAPHY ───────────────────── */
+  --font-heading:  Georgia, 'Times New Roman', serif;
+  --font-body:     system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* ── SPACING SCALE (base 8px) ─────── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+
+  /* ── RADII ────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* ── SHADOWS ──────────────────────── */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: var(--navy);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border);
+  transition: text-decoration-color 0.15s;
+}
+a:hover {
+  text-decoration-color: var(--navy);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  color: var(--navy);
+}
+
+/* ── LAYOUT ──────────────────────────── */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding-left: var(--sp-6);
+  padding-right: var(--sp-6);
+}
+
+.section {
+  padding: var(--sp-9) 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--border-light);
+}
+
+/* ── BUTTONS ─────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.btn-primary {
+  background: var(--navy);
+  color: var(--surface);
+}
+.btn-primary:hover { background: var(--navy-light); }
+.btn-secondary {
+  background: transparent;
+  color: var(--navy);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover { border-color: var(--navy); }
+.btn-text {
+  background: none;
+  color: var(--navy);
+  padding: 10px 8px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── EYEBROW LABEL ───────────────────── */
+.eyebrow {
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+/* ── CARDS ────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ── INFO BLOCK ──────────────────────── */
+.info-block {
+  border-left: 3px solid var(--gold);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface-raised);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+.info-block dt {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: var(--sp-3);
+}
+.info-block dt:first-child { margin-top: 0; }
+.info-block dd {
+  font-size: 15px;
+  color: var(--text);
+  margin-left: 0;
+}
+
+/* ── RESPONSIVE ──────────────────────── */
+@media (max-width: 640px) {
+  .container {
+    padding-left: var(--sp-4);
+    padding-right: var(--sp-4);
+  }
+}

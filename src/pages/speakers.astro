@@ -1,0 +1,181 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const speakers2026 = [
+  {
+    initials: 'SK',
+    name: 'Sharmila Khare',
+    role: 'Director General, Charities Directorate',
+    org: 'Canada Revenue Agency',
+    orgUrl: '',
+    bio: 'As head of the CRA\'s Charities Directorate, Sharmila Khare brings deep expertise in regulatory compliance and the evolving landscape of charitable oversight in Canada.',
+  },
+  {
+    initials: 'TK',
+    name: 'Taras Kulish',
+    role: 'Charities & Not-for-Profit Counsel',
+    org: 'Mills & Mills LLP',
+    orgUrl: 'https://www.millsandmills.ca/',
+    bio: 'Taras practices in corporate and commercial law with a focus on not-for-profit organizations, charities, and religious organizations. He presented on minimizing litigation risk at Knowledge Hub 2025.',
+  },
+];
+
+const pastSpeakers = [
+  {
+    initials: 'TK',
+    name: 'Taras Kulish',
+    role: 'Charities & Not-for-Profit Counsel',
+    org: 'Mills & Mills LLP',
+    orgUrl: 'https://www.millsandmills.ca/',
+    year: '2025',
+    topic: 'Minimizing Litigation Risk',
+    topicUrl: 'https://www.millsandmills.ca/community/minimizing-litigation-risk-insights-from-taras-kulish-at-knowledge-hub-2025/',
+  },
+];
+---
+
+<BaseLayout title="Speakers — Knowledge Hub">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Speakers</span>
+      <h1>Our Speakers</h1>
+      <p>Experienced professionals sharing practical knowledge for the not-for-profit sector.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>2026 Speakers</h2>
+      <div class="speakers-list">
+        {speakers2026.map(s => (
+          <div class="speaker-card card">
+            <div class="speaker-avatar"><span>{s.initials}</span></div>
+            <div class="speaker-info">
+              <h3>{s.name}</h3>
+              <p class="speaker-role">{s.role}</p>
+              {s.orgUrl
+                ? <p class="speaker-org"><a href={s.orgUrl} target="_blank" rel="noopener">{s.org}</a></p>
+                : <p class="speaker-org">{s.org}</p>
+              }
+              <p class="speaker-bio">{s.bio}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Past Speakers</h2>
+      <div class="speakers-list">
+        {pastSpeakers.map(s => (
+          <div class="speaker-card card">
+            <div class="speaker-avatar past"><span>{s.initials}</span></div>
+            <div class="speaker-info">
+              <span class="eyebrow">{s.year}</span>
+              <h3>{s.name}</h3>
+              <p class="speaker-role">{s.role}, {s.orgUrl ? <a href={s.orgUrl} target="_blank" rel="noopener">{s.org}</a> : s.org}</p>
+              <p class="speaker-topic">
+                Topic: {s.topicUrl ? <a href={s.topicUrl} target="_blank" rel="noopener">{s.topic} →</a> : s.topic}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: var(--sp-8) 0;
+  }
+  .page-hero .eyebrow { display: block; margin-bottom: var(--sp-3); }
+  .page-hero h1 { font-size: 36px; margin-bottom: var(--sp-3); }
+  .page-hero p { font-size: 16px; color: var(--text-secondary); max-width: 560px; line-height: 1.6; }
+
+  h2 { font-size: 22px; margin-bottom: var(--sp-5); }
+
+  .speakers-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+  }
+  .speaker-card {
+    display: flex;
+    gap: var(--sp-5);
+    align-items: start;
+  }
+  .speaker-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    background: var(--navy);
+    color: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .speaker-avatar.past {
+    background: var(--navy-light);
+    opacity: 0.7;
+  }
+  .speaker-info h3 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--navy);
+    margin: var(--sp-1) 0;
+  }
+  .speaker-role {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .speaker-role a {
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .speaker-role a:hover { text-decoration: underline; }
+  .speaker-org {
+    font-size: 13.5px;
+    color: var(--text-tertiary);
+  }
+  .speaker-org a {
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .speaker-org a:hover { text-decoration: underline; }
+  .speaker-bio {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-top: var(--sp-3);
+    max-width: 560px;
+  }
+  .speaker-topic {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: var(--sp-2);
+  }
+  .speaker-topic a {
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .speaker-topic a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .speaker-card { flex-direction: column; }
+  }
+</style>

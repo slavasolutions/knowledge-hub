@@ -1,0 +1,13 @@
+{
+  "name": "knowledge-hub",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev --port 5000",
+    "build": "astro build",
+    "preview": "astro preview --port 5000"
+  },
+  "dependencies": {
+    "astro": "^5.5.0"
+  }
+}

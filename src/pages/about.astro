@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About — Knowledge Hub">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">About the Event</span>
+      <h1>Knowledge Hub</h1>
+      <p>An annual evening seminar for anyone involved with charities, religious organizations, and not-for-profit organizations.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <div class="content-main">
+        <h2>Our Mission</h2>
+        <p>Each year, the Knowledge Hub brings together experienced professionals who share practical knowledge on topics that matter to the not-for-profit sector. From legal compliance and financial management to governance and risk mitigation, our sessions are designed to equip leaders with actionable insights.</p>
+
+        <h2>Who Attends</h2>
+        <p>Board members, treasurers, executive directors, administrators, and volunteers from charities, churches, and not-for-profit organizations across the Greater Toronto Area. Whether you're running a small community group or managing a large charitable organization, the Knowledge Hub has something for you.</p>
+
+        <h2>Format</h2>
+        <p>The evening begins with a networking reception, followed by expert-led presentations and Q&amp;A sessions. Light refreshments are provided. A livestream option is available for those unable to attend in person.</p>
+      </div>
+
+      <aside class="content-aside">
+        <div class="info-block">
+          <dl>
+            <dt>Next Event</dt>
+            <dd>April 23, 2026</dd>
+            <dt>Time</dt>
+            <dd>5:30 PM – 9:00 PM</dd>
+            <dt>Location</dt>
+            <dd>The Old Mill, Toronto</dd>
+          </dl>
+        </div>
+
+        <div class="aside-section">
+          <span class="eyebrow" style="color: var(--text-tertiary);">Organized by</span>
+          <ul class="org-list">
+            <li><a href="#">UCSS Toronto</a></li>
+            <li><a href="#">UCPBA</a></li>
+            <li><a href="#">UCBA</a></li>
+          </ul>
+        </div>
+
+        <div class="aside-section">
+          <span class="eyebrow" style="color: var(--text-tertiary);">With support from</span>
+          <ul class="org-list">
+            <li><a href="#">Mills &amp; Mills LLP</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: var(--sp-8) 0;
+  }
+  .page-hero .eyebrow {
+    display: block;
+    margin-bottom: var(--sp-3);
+  }
+  .page-hero h1 {
+    font-size: 36px;
+    margin-bottom: var(--sp-3);
+  }
+  .page-hero p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--sp-8);
+    align-items: start;
+  }
+  .content-main h2 {
+    font-size: 22px;
+    margin-bottom: var(--sp-3);
+  }
+  .content-main h2:not(:first-child) {
+    margin-top: var(--sp-7);
+  }
+  .content-main p {
+    font-size: 15.5px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 600px;
+  }
+
+  .content-aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-6);
+    position: sticky;
+    top: 80px;
+  }
+  .aside-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+  .org-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-1);
+    margin-top: var(--sp-1);
+  }
+  .org-list a {
+    font-size: 14px;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .org-list a:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .content-aside { position: static; }
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SessionCard from '../components/SessionCard.astro';
+
+const events = [
+  {
+    year: '2025',
+    title: 'Minimizing Litigation Risk',
+    description: 'Taras Kulish shared expert insights on protecting nonprofit organizations from litigation risk, covering key areas of vulnerability and practical prevention strategies.',
+  },
+  {
+    year: '2024',
+    title: 'Financial Reporting Best Practices',
+    description: 'Key strategies for transparent and compliant financial reporting in the not-for-profit sector, including CRA requirements and audit preparation.',
+  },
+  {
+    year: '2023',
+    title: 'Governance Essentials',
+    description: 'Foundational governance structures and board responsibilities for charitable organizations, with templates and checklists for implementation.',
+  },
+  {
+    year: '2022',
+    title: 'Employment Law for Not-For-Profits',
+    description: 'Understanding employment standards, volunteer relationships, and HR best practices for organizations operating with limited resources.',
+  },
+  {
+    year: '2021',
+    title: 'Digital Transformation on a Budget',
+    description: 'Practical approaches to modernizing operations, from cloud tools to online fundraising, tailored for organizations with modest budgets.',
+  },
+];
+---
+
+<BaseLayout title="Past Events — Knowledge Hub">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Archive</span>
+      <h1>Past Events</h1>
+      <p>Recordings and summaries from previous Knowledge Hub sessions.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="events-grid">
+        {events.map(event => (
+          <SessionCard
+            year={event.year}
+            title={event.title}
+            description={event.description}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: var(--sp-8) 0;
+  }
+  .page-hero .eyebrow {
+    display: block;
+    margin-bottom: var(--sp-3);
+  }
+  .page-hero h1 {
+    font-size: 36px;
+    margin-bottom: var(--sp-3);
+  }
+  .page-hero p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.6;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-5);
+  }
+
+  @media (max-width: 640px) {
+    .events-grid { grid-template-columns: 1fr; }
+  }
+</style>

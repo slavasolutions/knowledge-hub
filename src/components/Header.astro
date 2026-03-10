@@ -1,0 +1,175 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: '/about', label: 'About' },
+  { href: '/speakers', label: 'Speakers' },
+  { href: '/past-events', label: 'Past Events' },
+  { href: '/sponsor', label: 'Sponsor' },
+];
+---
+
+<header class="site-header">
+  <div class="header-inner container">
+    <a href="/" class="brand" aria-label="Knowledge Hub — Home">
+      <span class="brand-mark">KH</span>
+      <span class="brand-text">
+        <span class="brand-name">Knowledge Hub</span>
+        <span class="brand-sub">UCSS-T &middot; UCPBA &middot; UCBA</span>
+      </span>
+    </a>
+
+    <button class="mobile-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" id="nav-links">
+      {links.map(link => (
+        <a href={link.href} class:list={[{ active: currentPath.startsWith(link.href) }]}>
+          {link.label}
+        </a>
+      ))}
+      <a href="https://www.eventbrite.ca/e/knowledge-hub-2026-tickets-1982313299441" target="_blank" rel="noopener" class="nav-cta">Register 2026 →</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--sp-5);
+    padding-bottom: var(--sp-5);
+  }
+
+  /* ── BRAND ─────────────────────── */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    text-decoration: none;
+  }
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: var(--surface);
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+  }
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+  .brand-name {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--surface);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .brand-sub {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.35);
+    line-height: 1;
+  }
+
+  /* ── NAV LINKS ─────────────────── */
+  .nav-links {
+    display: flex;
+    gap: var(--sp-6);
+    align-items: center;
+  }
+  .nav-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--surface);
+  }
+  .nav-cta {
+    background: #FFFFFF !important;
+    color: var(--navy) !important;
+    padding: 10px 24px;
+    border-radius: var(--radius-sm);
+    font-size: 13.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.02em;
+    transition: background 0.15s, transform 0.1s !important;
+  }
+  .nav-cta:hover {
+    background: var(--gold-pale) !important;
+    transform: translateY(-1px);
+  }
+
+  /* ── MOBILE ────────────────────── */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .mobile-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 1px;
+    transition: transform 0.2s;
+  }
+
+  @media (max-width: 640px) {
+    .mobile-toggle { display: flex; }
+    .brand-sub { display: none; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: var(--sp-5) var(--sp-6);
+      gap: var(--sp-4);
+    }
+    .nav-links.open { display: flex; }
+    .header-inner { position: relative; }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.mobile-toggle');
+  const nav = document.getElementById('nav-links');
+  toggle?.addEventListener('click', () => {
+    nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', nav?.classList.contains('open') ? 'true' : 'false');
+  });
+</script>
