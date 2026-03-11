@@ -1,6 +1,5 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import SessionCard from '../components/SessionCard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const events = [
   {
@@ -45,11 +44,12 @@ const events = [
     <div class="container">
       <div class="events-grid">
         {events.map(event => (
-          <SessionCard
-            year={event.year}
-            title={event.title}
-            description={event.description}
-          />
+          <a href={`/past-events/${event.year}`} class="card event-card">
+            <span class="eyebrow">{event.year}</span>
+            <h4>{event.title}</h4>
+            <p>{event.description}</p>
+            <span class="event-link">View details &rarr;</span>
+          </a>
         ))}
       </div>
     </div>
@@ -82,6 +82,30 @@ const events = [
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--sp-5);
+  }
+  .event-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+  .event-card h4 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--navy);
+    margin: var(--sp-2) 0;
+  }
+  .event-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--sp-3);
+    flex-grow: 1;
+  }
+  .event-link {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--navy);
   }
 
   @media (max-width: 640px) {

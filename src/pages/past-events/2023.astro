@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Knowledge Hub 2023 — Governance Essentials">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">2023 Event</span>
+      <h1>Governance Essentials</h1>
+      <p>Foundational governance structures and board responsibilities for charitable organizations.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <div class="content-main">
+        <h2>About This Session</h2>
+        <p>The 2023 Knowledge Hub addressed the fundamentals of governance for charities and not-for-profit organizations. Attendees learned about board structures, fiduciary duties, and practical tools for strengthening organizational governance.</p>
+
+        <h2>Key Topics</h2>
+        <ul class="topics-list">
+          <li>Board composition and recruitment best practices</li>
+          <li>Fiduciary duties of directors and officers</li>
+          <li>Meeting procedures and documentation</li>
+          <li>Conflict of interest policies</li>
+          <li>Templates and checklists for governance implementation</li>
+        </ul>
+      </div>
+
+      <aside class="content-aside">
+        <div class="info-block">
+          <dl>
+            <dt>Date</dt>
+            <dd>April 2023</dd>
+            <dt>Location</dt>
+            <dd>The Old Mill, Toronto</dd>
+            <dt>Format</dt>
+            <dd>In-person &amp; livestream</dd>
+          </dl>
+        </div>
+        <a href="/past-events" class="back-link">&larr; All past events</a>
+      </aside>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: var(--sp-8) 0;
+  }
+  .page-hero .eyebrow { display: block; margin-bottom: var(--sp-3); }
+  .page-hero h1 { font-size: 36px; margin-bottom: var(--sp-3); }
+  .page-hero p { font-size: 16px; color: var(--text-secondary); max-width: 560px; line-height: 1.6; }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--sp-8);
+    align-items: start;
+  }
+  .content-main h2 { font-size: 22px; margin-bottom: var(--sp-3); }
+  .content-main h2:not(:first-child) { margin-top: var(--sp-7); }
+  .content-main p { font-size: 15.5px; color: var(--text-secondary); line-height: 1.65; max-width: 600px; }
+
+  .topics-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+  .topics-list li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    padding-left: var(--sp-4);
+    position: relative;
+    line-height: 1.5;
+  }
+  .topics-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .content-aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+    position: sticky;
+    top: 80px;
+  }
+  .back-link {
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .content-aside { position: static; }
+  }
+</style>

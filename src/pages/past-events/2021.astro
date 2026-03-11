@@ -1,0 +1,110 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Knowledge Hub 2021 — Digital Transformation on a Budget">
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow">2021 Event</span>
+      <h1>Digital Transformation on a Budget</h1>
+      <p>Practical approaches to modernizing operations, from cloud tools to online fundraising, tailored for organizations with modest budgets.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-grid">
+      <div class="content-main">
+        <h2>About This Session</h2>
+        <p>The 2021 Knowledge Hub helped not-for-profit organizations navigate the shift to digital operations. The session provided practical, budget-friendly strategies for adopting technology tools, moving to cloud-based systems, and building an online presence for fundraising and outreach.</p>
+
+        <h2>Key Topics</h2>
+        <ul class="topics-list">
+          <li>Cloud tools and platforms for small organizations</li>
+          <li>Online fundraising strategies and platforms</li>
+          <li>Digital communication and stakeholder engagement</li>
+          <li>Data management and privacy considerations</li>
+          <li>Building a sustainable technology strategy on a limited budget</li>
+        </ul>
+      </div>
+
+      <aside class="content-aside">
+        <div class="info-block">
+          <dl>
+            <dt>Date</dt>
+            <dd>2021</dd>
+            <dt>Format</dt>
+            <dd>Virtual event</dd>
+          </dl>
+        </div>
+        <a href="/past-events" class="back-link">&larr; All past events</a>
+      </aside>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: var(--sp-8) 0;
+  }
+  .page-hero .eyebrow { display: block; margin-bottom: var(--sp-3); }
+  .page-hero h1 { font-size: 36px; margin-bottom: var(--sp-3); }
+  .page-hero p { font-size: 16px; color: var(--text-secondary); max-width: 560px; line-height: 1.6; }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: var(--sp-8);
+    align-items: start;
+  }
+  .content-main h2 { font-size: 22px; margin-bottom: var(--sp-3); }
+  .content-main h2:not(:first-child) { margin-top: var(--sp-7); }
+  .content-main p { font-size: 15.5px; color: var(--text-secondary); line-height: 1.65; max-width: 600px; }
+
+  .topics-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+  }
+  .topics-list li {
+    font-size: 15px;
+    color: var(--text-secondary);
+    padding-left: var(--sp-4);
+    position: relative;
+    line-height: 1.5;
+  }
+  .topics-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+
+  .content-aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
+    position: sticky;
+    top: 80px;
+  }
+  .back-link {
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .back-link:hover { text-decoration: underline; }
+
+  @media (max-width: 768px) {
+    .content-grid { grid-template-columns: 1fr; }
+    .content-aside { position: static; }
+  }
+</style>

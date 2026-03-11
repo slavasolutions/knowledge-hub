@@ -20,12 +20,10 @@ import SessionCard from '../components/SessionCard.astro';
       <div class="hero-details">
         <div class="hero-detail-card">
           <dl>
-            <dt>Registration</dt>
-            <dd class="detail-price">$10 – $45 <span>CAD</span></dd>
             <dt>Includes</dt>
             <dd>Presentations, networking, sandwiches, coffee &amp; tea</dd>
             <dt>Livestream</dt>
-            <dd>6:30 PM – 8:15 PM &middot; from $10</dd>
+            <dd>6:30 PM – 8:15 PM EDT</dd>
           </dl>
         </div>
       </div>
@@ -120,7 +118,7 @@ import SessionCard from '../components/SessionCard.astro';
             <dt>Format</dt>
             <dd>In-person and livestream</dd>
             <dt>Registration</dt>
-            <dd>$10 – $45 CAD &middot; No refunds</dd>
+            <dd>Free &amp; paid options available</dd>
           </dl>
         </div>
         <div class="details-aside">
@@ -148,18 +146,22 @@ import SessionCard from '../components/SessionCard.astro';
           year="2025"
           title="Minimizing Litigation Risk"
           description="Taras Kulish of Mills & Mills LLP shared insights on navigating legal challenges and protecting not-for-profit organizations from litigation risk."
-          href="https://www.millsandmills.ca/community/minimizing-litigation-risk-insights-from-taras-kulish-at-knowledge-hub-2025/"
-          linkText="Read more →"
+          href="/past-events/2025"
+          linkText="View details →"
         />
         <SessionCard
           year="2024"
           title="Financial Reporting Best Practices"
           description="Key strategies for transparent and compliant financial reporting in the not-for-profit sector."
+          href="/past-events/2024"
+          linkText="View details →"
         />
         <SessionCard
           year="2023"
           title="Governance Essentials"
           description="Foundational governance structures and board responsibilities for charitable organizations."
+          href="/past-events/2023"
+          linkText="View details →"
         />
       </div>
     </div>
@@ -231,16 +233,6 @@ import SessionCard from '../components/SessionCard.astro';
     font-size: 14.5px;
     color: var(--text);
     margin-left: 0;
-  }
-  .detail-price {
-    font-family: var(--font-heading);
-    font-size: 22px !important;
-    color: var(--navy) !important;
-  }
-  .detail-price span {
-    font-family: var(--font-body);
-    font-size: 12px;
-    color: var(--text-tertiary);
   }
   .detail-sub {
     font-size: 13px;
